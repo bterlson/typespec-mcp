@@ -103,6 +103,43 @@ importers:
         specifier: 'catalog:'
         version: 5.8.3
 
+  packages/tsp-mcp-agent:
+    dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.9.0
+        version: 1.9.0
+      '@typespec/compiler':
+        specifier: 'catalog:'
+        version: 1.0.0-rc.0(@types/node@22.14.0)
+      typespec-mcp:
+        specifier: workspace:*
+        version: link:../typespec-mcp
+      typespec-mcp-server-js:
+        specifier: workspace:*
+        version: link:../typespec-mcp-server-js
+      zod:
+        specifier: ^3.24.2
+        version: 3.24.2
+      zod-to-json-schema:
+        specifier: ^3.24.5
+        version: 3.24.5(zod@3.24.2)
+      zod-validation-error:
+        specifier: ^3.4.0
+        version: 3.4.0(zod@3.24.2)
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.14.0
+      '@wong2/mcp-cli':
+        specifier: ^1.6.0
+        version: 1.6.0
+      prettier:
+        specifier: ^3.5.3
+        version: 3.5.3
+      typescript:
+        specifier: 'catalog:'
+        version: 5.8.3
+
   packages/typespec-mcp:
     dependencies:
       '@typespec/compiler':
