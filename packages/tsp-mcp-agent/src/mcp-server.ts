@@ -47,7 +47,7 @@ setToolHandler({
       NodeHost,
       makeScaffoldingConfig(template, {
         directory: outDir,
-        baseUri: coreTemplates.baseUri,
+        baseUri,
       })
     );
     return `Project created in ${outDir}`;
