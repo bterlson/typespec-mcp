@@ -8,9 +8,9 @@ interface Tools {
   learnTypeSpec(area?: "MCP"): string;
 
   /**
-   * Init a typespec project
+   * Init a typespec project in the given directory.
    **/
-  init(): string;
+  init(outDir: string, template: string): Promise<string>;
 }
 
 export let toolHandler: Tools = undefined as any;

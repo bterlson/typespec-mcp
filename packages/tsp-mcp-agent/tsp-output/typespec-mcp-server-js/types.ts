@@ -8,6 +8,10 @@ export const learnTypeSpecParameters = z.object({
 
 export const learnTypeSpecReturnType = z.string();
 
-export const initParameters = z.object({});
+export const initParameters = z.object({
+  outDir: z.string()
+    .describe("The absolute path to the directory to create the typespec project in."),
+  template: z.string(),
+});
 
 export const initReturnType = z.string();

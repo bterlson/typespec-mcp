@@ -34,7 +34,7 @@ server.setRequestHandler(
         },
         {
           name: "init",
-          description: "Init a typespec project",
+          description: "Init a typespec project in the given directory.",
           inputSchema: zodToJsonSchema(
             initParameters,
             {
@@ -75,7 +75,14 @@ server.setRequestHandler(
       }
 
       case "init": {
-        const rawResult = toolHandler.init();
+        const parsed = initParameters.safeParse(args);
+        if (!parsed.success) {
+          throw fromZodError(parsed.error, { prefix: "Request validation error" });
+        }
+        const rawResult = await toolHandler.init(
+          parsed.data.outDir,
+          parsed.data.template
+        );
         const maybeResult = initReturnType.safeParse(rawResult);
         if (!maybeResult.success) {
           throw fromZodError(maybeResult.error, { prefix: "Response validation error"});

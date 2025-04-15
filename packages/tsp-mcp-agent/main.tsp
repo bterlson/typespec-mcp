@@ -10,6 +10,8 @@ alias LearnArea = "MCP";
 @tool op learnTypeSpec(area?: LearnArea): string;
 
 /**
- * Init a typespec project
+ * Init a typespec project in the given directory.
+ * 
+ * @param outDir - The absolute path to the directory to create the typespec project in.
  */
-@tool op `init`(): string;
+@tool op `init`(outDir: string, template: string): string;
