@@ -1,4 +1,6 @@
+type BuiltInTemplateNames = "rest" | "mcp" | "library-ts" | "emitter-ts";
 
+type TemplateOption = BuiltInTemplateNames | string;
 
 interface Tools {
   /**
@@ -10,7 +12,7 @@ interface Tools {
   /**
    * Init a typespec project in the given directory.
    **/
-  init(outDir: string, template: string): Promise<string>;
+  init(outDir: string, template?: TemplateOption): Promise<string>;
 }
 
 export let toolHandler: Tools = undefined as any;
