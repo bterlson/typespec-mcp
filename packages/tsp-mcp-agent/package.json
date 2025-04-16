@@ -7,6 +7,7 @@
     "@modelcontextprotocol/inspector": "^0.9.0",
     "@modelcontextprotocol/sdk": "^1.9.0",
     "@typespec/compiler": "catalog:",
+    "execa": "^9.5.2",
     "typespec-mcp": "workspace:*",
     "typespec-mcp-server-js": "workspace:*",
     "zod": "^3.24.2",

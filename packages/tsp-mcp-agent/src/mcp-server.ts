@@ -3,10 +3,11 @@ import { setToolHandler } from "../tsp-output/typespec-mcp-server-js/tools.js";
 import { server } from "../tsp-output/typespec-mcp-server-js/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { readFile } from "fs/promises";
-import { join } from "path";
+import { basename, join } from "path";
 import { NodeHost } from "@typespec/compiler";
 import { WorkflowConfig, workflows } from "./workflows.js";
 import { projectRoot } from "./utils.js";
+import { execa } from "execa";
 
 const instructions = (
   await readFile(join(projectRoot, "assets", "instructions", "mcp.md"))
@@ -17,6 +18,7 @@ setToolHandler({
     return instructions;
   },
   async init({ outDir, workflow: workflowName, name, additionalEmitters }) {
+    name ??= basename(outDir);
     const workflow = workflowName && workflows[workflowName];
     if (workflow === undefined) {
       throw new Error(
@@ -40,6 +42,7 @@ setToolHandler({
         emitters: resolveEmitters(workflow, additionalEmitters),
       })
     );
+    await execa("npm", ["install"], { cwd: outDir });
     return `Project created in ${outDir}`;
   },
 });
@@ -56,7 +59,7 @@ function resolveEmitters(
     ...(userAdditionalEmitters ?? []),
   ]);
 
-  const emitters = { ...workflow.template.emitters };
+  const emitters: Record<string, any> = {};
   for (const emitter of additionalEmitters) {
     if (emitter in workflow.template.emitters) {
       emitters[emitter] = workflow.template.emitters[emitter];
@@ -66,6 +69,7 @@ function resolveEmitters(
       };
     }
   }
+
   return emitters;
 }
 const transport = new StdioServerTransport();
