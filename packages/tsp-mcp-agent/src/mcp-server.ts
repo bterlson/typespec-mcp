@@ -42,7 +42,7 @@ setToolHandler({
         emitters: resolveEmitters(workflow, additionalEmitters),
       })
     );
-    await execa("npm", ["install"], { cwd: outDir });
+    await execa("pnpm", ["install"], { cwd: outDir });
     return `Project created in ${outDir}`;
   },
 });
