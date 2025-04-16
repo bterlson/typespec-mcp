@@ -79,10 +79,7 @@ server.setRequestHandler(
         if (!parsed.success) {
           throw fromZodError(parsed.error, { prefix: "Request validation error" });
         }
-        const rawResult = await toolHandler.init(
-          parsed.data.outDir,
-          parsed.data.template
-        );
+        const rawResult = await toolHandler.init(parsed.data.options);
         const maybeResult = initReturnType.safeParse(rawResult);
         if (!maybeResult.success) {
           throw fromZodError(maybeResult.error, { prefix: "Response validation error"});
