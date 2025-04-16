@@ -29,6 +29,10 @@
       {
         "path": "mcp/tsconfig.json",
         "destination": "tsconfig.json"
+      },
+      {
+        "path": "mcp/src/mcp-server.ts",
+        "destination": "src/mcp-server.ts"
       }
     ]
   }
