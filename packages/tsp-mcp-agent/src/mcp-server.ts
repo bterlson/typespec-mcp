@@ -2,7 +2,7 @@
 import { setToolHandler } from "../tsp-output/typespec-mcp-server-js/tools.js";
 import { server } from "../tsp-output/typespec-mcp-server-js/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { readFile } from "fs/promises";
+import { readFile, writeFile } from "fs/promises";
 import { basename, join } from "path";
 import { NodeHost } from "@typespec/compiler";
 import { WorkflowConfig, workflows } from "./workflows.js";
@@ -42,11 +42,21 @@ setToolHandler({
         emitters: resolveEmitters(workflow, additionalEmitters),
       })
     );
+    // Bug with pnpm doesn't allow `latest` in peerDependencies. will be resolved in next compiler version which produce dependencies in those cases.
+    await patchPkgJson(outDir);
+
     await execa("pnpm", ["install"], { cwd: outDir });
     return `Project created in ${outDir}`;
   },
 });
 
+async function patchPkgJson(outDir: string) {
+  const filename = join(outDir, "package.json");
+  const content = (await readFile(filename)).toString();
+  const pkgJson = JSON.parse(content);
+  delete pkgJson.peerDependencies;
+  await writeFile(filename, JSON.stringify(pkgJson, null, 2));
+}
 function resolveEmitters(
   workflow: WorkflowConfig,
   userAdditionalEmitters: string[] | undefined
