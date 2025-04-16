@@ -55,3 +55,11 @@ Examples 2: Create a tool call `addVector`
  */
 @tool op addVector(v1: Vec3, v2: Vec3): Vec3;
 ```
+
+### Compiling the typespec
+
+In the project directory run
+
+```bash
+tsp compile .
+```

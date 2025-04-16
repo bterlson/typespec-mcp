@@ -21,6 +21,14 @@
       {
         "path": "mcp/main.tsp",
         "destination": "main.tsp"
+      },
+      {
+        "path": "mcp/package.json",
+        "destination": "package.json"
+      },
+      {
+        "path": "mcp/tsconfig.json",
+        "destination": "tsconfig.json"
       }
     ]
   }
