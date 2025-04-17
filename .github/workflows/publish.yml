@@ -14,6 +14,8 @@ jobs:
     environment: npm
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: pnpm/action-setup@v4
       - name: Setup node
         uses: actions/setup-node@v4
