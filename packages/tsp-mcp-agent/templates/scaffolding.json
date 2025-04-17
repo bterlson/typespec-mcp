@@ -31,6 +31,10 @@
         "destination": "tsconfig.json"
       },
       {
+        "path": "mcp/.npmrc",
+        "destination": ".npmrc"
+      },
+      {
         "path": "mcp/src/mcp-server.ts",
         "destination": "src/mcp-server.ts"
       }

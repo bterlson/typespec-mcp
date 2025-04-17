@@ -43,9 +43,9 @@ setToolHandler({
       })
     );
     // Bug with pnpm doesn't allow `latest` in peerDependencies. will be resolved in next compiler version which produce dependencies in those cases.
-    await patchPkgJson(outDir);
+    // await patchPkgJson(outDir);
 
-    await execa("pnpm", ["install"], { cwd: outDir });
+    await execa("npm", ["install"], { cwd: outDir });
     return [`Project created in ${outDir}`, "Run pnpm build to build the project"].join("\n");
   },
 });

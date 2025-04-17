@@ -5,18 +5,18 @@
   "description": "",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.9.0",
-    "@typespec/compiler": "catalog:",
-    "typespec-mcp": "workspace:*",
-    "typespec-mcp-server-js": "workspace:*",
+    "@typespec/compiler": "latest",
+    "@bterlson/typespec-mcp": "latest",
+    "@bterlson/typespec-mcp-server-js": "latest",
     "zod": "^3.24.2",
     "zod-to-json-schema": "^3.24.5",
     "zod-validation-error": "^3.4.0"
   },
   "devDependencies": {
-    "@types/node": "catalog:",
+    "@types/node": "^22.14.1",
     "@wong2/mcp-cli": "^1.6.0",
     "prettier": "^3.5.3",
-    "typescript": "catalog:"
+    "typescript": "~5.8.3"
   },
   "scripts": {
     "build": "npm run build-tsp && npm run build-ts",
