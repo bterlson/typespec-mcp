@@ -15,6 +15,12 @@ import {
 } from "@typespec/compiler";
 import { $ } from "@typespec/compiler/experimental/typekit";
 import { splitOutErrors } from "../utils.js";
+import {
+  unsafe_mutateSubgraph,
+  unsafe_MutableType,
+  unsafe_MutatorFlow,
+} from "@typespec/compiler/experimental";
+import { EnumToUnion } from "../mutators.jsx";
 
 export interface MCPServerKeys {
   server: Refkey;
@@ -139,7 +145,13 @@ export function createMCPServerContext(options: {
   const toolOps = $.mcp.tools.list();
   const toolDescriptors: ToolDescriptor[] = [];
 
-  for (const toolOp of toolOps) {
+  for (const rawToolOp of toolOps) {
+    const toolOpMutation = unsafe_mutateSubgraph(
+      $.program,
+      [EnumToUnion],
+      rawToolOp,
+    );
+    const toolOp = toolOpMutation.type as Operation;
     const { successes, errors } = splitOutErrors(toolOp);
 
     // the declared return type is the type of the successful results from the
@@ -190,7 +202,7 @@ export function createMCPServerContext(options: {
     toolDescriptors.flatMap((tool) => [
       tool.op.parameters,
       tool.implementationOp.returnType,
-    ])
+    ]),
   );
 
   return {
@@ -221,7 +233,7 @@ function resultDescriptorFromDeclaredType(type: Type): ResultDescriptor {
 function resultTypeFromDeclaredType(type: Type): Type {
   if ($.union.is(type)) {
     const variantResultTypes = Array.from(type.variants.values()).map((v) =>
-      resultTypeFromDeclaredType(v.type)
+      resultTypeFromDeclaredType(v.type),
     );
 
     return $.union.create({
@@ -250,7 +262,7 @@ function resultTypeFromDeclaredType(type: Type): Type {
 }
 
 function resultDescriptorFromDeclaredSingleType(
-  type: Type
+  type: Type,
 ): SingleResultDescriptor {
   return {
     kind: "single",
@@ -259,7 +271,7 @@ function resultDescriptorFromDeclaredSingleType(
 }
 
 function resultDescriptorFromDeclaredArrayType(
-  type: Type
+  type: Type,
 ): ArrayResultDescriptor {
   const elementType = (type as Model).indexer!.value;
   const elementDescriptor = resultDescriptorFromDeclaredSingleType(elementType);
@@ -271,11 +283,6 @@ function resultDescriptorFromDeclaredArrayType(
   };
 }
 
-let fileType: Type | undefined;
-
-function createFileType() {
-  return fileType!;
-}
 function discoverTypesFrom(types: Type[]) {
   const discoveredTypes = new Set<Type>();
 
@@ -288,7 +295,7 @@ function discoverTypesFrom(types: Type[]) {
         union: collectType,
         scalar: collectType,
       },
-      { includeTemplateDeclaration: false }
+      { includeTemplateDeclaration: false },
     );
   }
 
@@ -395,7 +402,7 @@ export function createCycleSets(types: Type[]): Type[][] {
 
       case "Union":
         return [...type.variants.values()].map((v) =>
-          v.kind === "UnionVariant" ? v.type : v
+          v.kind === "UnionVariant" ? v.type : v,
         );
       case "UnionVariant":
         return [type.type];
