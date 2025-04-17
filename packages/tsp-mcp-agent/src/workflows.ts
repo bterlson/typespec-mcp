@@ -36,14 +36,14 @@ function useTemplate(
 export const workflows: Record<Workflow, WorkflowConfig> = {
   mcp: useTemplate(mcpTemplates, "mcp"),
   "rest api": {
-    ...useTemplate(mcpTemplates, "rest"),
+    ...useTemplate(coreTemplates, "rest"),
   },
   "rest api with js server": {
-    ...useTemplate(mcpTemplates, "rest"),
+    ...useTemplate(coreTemplates, "rest"),
     emitters: ["@typespec/http-server-js"],
   },
   "rest api with csharp server": {
-    ...useTemplate(mcpTemplates, "rest"),
+    ...useTemplate(coreTemplates, "rest"),
     emitters: ["@typespec/http-server-csharp"],
   },
 };
