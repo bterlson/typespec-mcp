@@ -1,6 +1,6 @@
 import { readFile } from "fs/promises";
 import { join } from "path";
-import type { Workflow } from "../tsp-output/typespec-mcp-server-js/tools.js";
+import type { Workflow } from "../tsp-output/typespec-mcp-server-js/ts-types.js";
 import { projectRoot } from "./utils.js";
 
 const mcpTemplates = await getMcpTemplates();

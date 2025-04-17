@@ -1,7 +1,7 @@
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { ListToolsRequestSchema, CallToolRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 import { zodToJsonSchema } from "zod-to-json-schema";
-import { learnTypeSpecParameters, initParameters, learnTypeSpecReturnType, initReturnType } from "./types.js";
+import { learnTypeSpecParameters, initParameters, learnTypeSpecReturnType, initReturnType } from "./zod-types.js";
 import { fromZodError } from "zod-validation-error";
 import { toolHandler } from "./tools.js";
 

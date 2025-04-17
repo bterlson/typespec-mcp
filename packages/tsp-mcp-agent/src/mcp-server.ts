@@ -50,7 +50,7 @@ setToolHandler({
       `Project created in ${outDir}`,
       `Project can be used as follow:`,
       "- Build with `npm run build`",
-      "- Start the server with node ./dist/src/mcp-server.js",
+      "- Start the server with `node ./dist/src/mcp-server.js`",
     ].join("\n");
   },
 });
