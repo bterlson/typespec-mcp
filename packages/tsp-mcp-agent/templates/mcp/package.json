@@ -6,8 +6,8 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.9.0",
     "@typespec/compiler": "latest",
-    "@bterlson/typespec-mcp": "latest",
-    "@bterlson/typespec-mcp-server-js": "latest",
+    "typespec-mcp": "latest",
+    "typespec-mcp-server-js": "latest",
     "zod": "^3.24.2",
     "zod-to-json-schema": "^3.24.5",
     "zod-validation-error": "^3.4.0"

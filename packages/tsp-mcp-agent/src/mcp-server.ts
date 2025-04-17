@@ -46,7 +46,7 @@ setToolHandler({
     // await patchPkgJson(outDir);
 
     await execa("npm", ["install"], { cwd: outDir });
-    return [`Project created in ${outDir}`, "Run pnpm build to build the project"].join("\n");
+    return [`Project created in ${outDir}`, "Run `npm run build` to build the project"].join("\n");
   },
 });
 
