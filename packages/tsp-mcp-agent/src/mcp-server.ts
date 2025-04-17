@@ -46,7 +46,12 @@ setToolHandler({
     // await patchPkgJson(outDir);
 
     await execa("npm", ["install"], { cwd: outDir });
-    return [`Project created in ${outDir}`, "Run `npm run build` to build the project"].join("\n");
+    return [
+      `Project created in ${outDir}`,
+      `Project can be used as follow:`,
+      "- Build with `npm run build`",
+      "- Start the server with node ./dist/src/mcp-server.js",
+    ].join("\n");
   },
 });
 

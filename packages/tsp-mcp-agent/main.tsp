@@ -34,6 +34,7 @@ union KnownEmitters {
 }
 /**
  * Teach the agent how to use typespec.
+ * **Call this tool before trying to generate TypeSpec code.**
  * An area can be specified to learn about a specific work stream with typespec(e.g. MCP, Rest API, etc.)
  **/
 @tool op learnTypeSpec(area?: LearnArea): string;

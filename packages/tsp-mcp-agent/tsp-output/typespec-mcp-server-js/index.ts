@@ -24,7 +24,7 @@ server.setRequestHandler(
       tools: [
         {
           name: "learnTypeSpec",
-          description: "Teach the agent how to use typespec.\nAn area can be specified to learn about a specific work stream with typespec(e.g. MCP, Rest API, etc.)",
+          description: "Teach the agent how to use typespec.\n**Call this tool before trying to generate TypeSpec code.**\nAn area can be specified to learn about a specific work stream with typespec(e.g. MCP, Rest API, etc.)",
           inputSchema: zodToJsonSchema(
             learnTypeSpecParameters,
             {

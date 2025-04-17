@@ -1,4 +1,4 @@
-export type Workflow = "mcp" | "rest api" | "rest api with js server" | "rest api with csharp server";
+type Workflow = "mcp" | "rest api" | "rest api with js server" | "rest api with csharp server";
 
 type KnownEmitters = "@typespec/openapi3" | "@typespec/http-client-csharp" | "@typespec/http-client-js" | "@typespec/http-client-python" | "@typespec/http-client-java" | "@typespec/http-client-go" | "typespec-mcp";
 
@@ -12,6 +12,7 @@ interface InitOptions {
 interface Tools {
   /**
    * Teach the agent how to use typespec.
+   * **Call this tool before trying to generate TypeSpec code.**
    * An area can be specified to learn about a specific work stream with typespec(e.g. MCP, Rest API, etc.)
    **/
   learnTypeSpec(area?: "mcp"): string;
