@@ -148,7 +148,7 @@ export function createMCPServerContext(): MCPServerContext {
     const toolOpMutation = unsafe_mutateSubgraph(
       $.program,
       [EnumToUnion],
-      rawToolOp
+      rawToolOp,
     );
     const toolOp = toolOpMutation.type as Operation;
     const { successes, errors } = splitOutErrors(toolOp);
@@ -201,7 +201,7 @@ export function createMCPServerContext(): MCPServerContext {
     toolDescriptors.flatMap((tool) => [
       tool.op.parameters,
       tool.implementationOp.returnType,
-    ])
+    ]),
   );
 
   return {
@@ -234,7 +234,7 @@ function resultDescriptorFromDeclaredType(type: Type): ResultDescriptor {
 function resultTypeFromDeclaredType(type: Type): Type {
   if ($.union.is(type)) {
     const variantResultTypes = Array.from(type.variants.values()).map((v) =>
-      resultTypeFromDeclaredType(v.type)
+      resultTypeFromDeclaredType(v.type),
     );
 
     return $.union.create({
@@ -263,7 +263,7 @@ function resultTypeFromDeclaredType(type: Type): Type {
 }
 
 function resultDescriptorFromDeclaredSingleType(
-  type: Type
+  type: Type,
 ): SingleResultDescriptor {
   return {
     kind: "single",
@@ -272,7 +272,7 @@ function resultDescriptorFromDeclaredSingleType(
 }
 
 function resultDescriptorFromDeclaredArrayType(
-  type: Type
+  type: Type,
 ): ArrayResultDescriptor {
   const elementType = (type as Model).indexer!.value;
   const elementDescriptor = resultDescriptorFromDeclaredSingleType(elementType);
@@ -296,7 +296,7 @@ function discoverTypesFrom(types: Type[]) {
         union: collectType,
         scalar: collectType,
       },
-      { includeTemplateDeclaration: false }
+      { includeTemplateDeclaration: false },
     );
   }
 
@@ -403,7 +403,7 @@ export function createCycleSets(types: Type[]): Type[][] {
 
       case "Union":
         return [...type.variants.values()].map((v) =>
-          v.kind === "UnionVariant" ? v.type : v
+          v.kind === "UnionVariant" ? v.type : v,
         );
       case "UnionVariant":
         return [type.type];
