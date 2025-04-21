@@ -1,4 +1,4 @@
-import { InitOptions } from "./ts-types.js";
+import { InitOptions, CompileOptions } from "./ts-types.js";
 
 interface Tools {
   /**
@@ -12,6 +12,11 @@ interface Tools {
    * Init a typespec project in the given directory.
    **/
   init(options: InitOptions): Promise<string>;
+
+  /**
+   * Compile the typespec project in the given directory.
+   **/
+  compile(options_2: CompileOptions): Promise<string>;
 }
 
 export let toolHandler: Tools = undefined as any;

@@ -29,6 +29,10 @@ export const InitOptions = z.object({
     .describe("Additional emitters to enable"),
 });
 
+export const CompileOptions = z.object({
+  entrypoint: z.string().describe("Entrypoint to build"),
+});
+
 export const learnTypeSpecParameters = z.object({
   area: z.literal("mcp").optional(),
 });
@@ -36,7 +40,13 @@ export const learnTypeSpecParameters = z.object({
 export const learnTypeSpecReturnType = z.string();
 
 export const initParameters = z.object({
-  options: InitOptions,
+  options: InitOptions.describe("Initialization options."),
 });
 
 export const initReturnType = z.string();
+
+export const compileParameters = z.object({
+  options: CompileOptions.describe("CompileOptions"),
+});
+
+export const compileReturnType = z.string();

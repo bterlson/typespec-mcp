@@ -3,7 +3,7 @@ import { setToolHandler } from "../tsp-output/typespec-mcp-server-js/tools.js";
 import { server } from "../tsp-output/typespec-mcp-server-js/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { readFile, writeFile } from "fs/promises";
-import { basename, join } from "path";
+import { basename, dirname, join } from "path";
 import { NodeHost } from "@typespec/compiler";
 import { WorkflowConfig, workflows } from "./workflows.js";
 import { projectRoot } from "./utils.js";
@@ -52,6 +52,26 @@ setToolHandler({
       "- Build with `npm run build`",
       "- Start the server with `node ./dist/src/mcp-server.js`",
     ].join("\n");
+  },
+  async compile({ entrypoint }) {
+    const filename = entrypoint.endsWith(".tsp") ? basename(entrypoint) : ".";
+    const result = await execa("tsp", ["compile", filename], {
+      cwd: entrypoint.endsWith(".tsp") ? dirname(entrypoint) : entrypoint,
+    });
+
+    if (result.exitCode !== 0) {
+      throw new Error(
+        [
+          "TypeSpec compilation failed",
+          `Note: later diagnostics might be caused by a previous one.`,
+          `Command result:`,
+          result.stdout,
+        ].join("\n")
+      );
+    }
+    return ["Compilation successful", "Command result:", result.stdout].join(
+      "\n"
+    );
   },
 });
 

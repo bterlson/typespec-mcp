@@ -1,14 +1,15 @@
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { ListToolsRequestSchema, CallToolRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 import { zodToJsonSchema } from "zod-to-json-schema";
-import { learnTypeSpecParameters, initParameters, learnTypeSpecReturnType, initReturnType } from "./zod-types.js";
+import { learnTypeSpecParameters, initParameters, compileParameters, learnTypeSpecReturnType, initReturnType, compileReturnType } from "./zod-types.js";
 import { fromZodError } from "zod-validation-error";
 import { toolHandler } from "./tools.js";
 
 export const server = new Server(
   {
-    name: "My MCP Server",
+    name: "MCP Server",
     version: "1.0.0",
+    instructions: undefined,
   },
   {
     capabilities: {
@@ -37,6 +38,16 @@ server.setRequestHandler(
           description: "Init a typespec project in the given directory.",
           inputSchema: zodToJsonSchema(
             initParameters,
+            {
+              $refStrategy: "none",
+            }
+          ),
+        },
+        {
+          name: "compile",
+          description: "Compile the typespec project in the given directory.",
+          inputSchema: zodToJsonSchema(
+            compileParameters,
             {
               $refStrategy: "none",
             }
@@ -81,6 +92,27 @@ server.setRequestHandler(
         }
         const rawResult = await toolHandler.init(parsed.data.options);
         const maybeResult = initReturnType.safeParse(rawResult);
+        if (!maybeResult.success) {
+          throw fromZodError(maybeResult.error, { prefix: "Response validation error"});
+        };
+        const result = maybeResult.data;
+        return {
+          content: [
+            {
+              type: "text",
+              text: result,
+            }
+          ],
+        };
+      }
+
+      case "compile": {
+        const parsed = compileParameters.safeParse(args);
+        if (!parsed.success) {
+          throw fromZodError(parsed.error, { prefix: "Request validation error" });
+        }
+        const rawResult = await toolHandler.compile(parsed.data.options);
+        const maybeResult = compileReturnType.safeParse(rawResult);
         if (!maybeResult.success) {
           throw fromZodError(maybeResult.error, { prefix: "Response validation error"});
         };

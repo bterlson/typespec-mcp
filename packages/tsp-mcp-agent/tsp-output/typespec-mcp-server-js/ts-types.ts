@@ -8,3 +8,7 @@ export interface InitOptions {
   "workflow"?: Workflow;
   "additionalEmitters"?: Array<KnownEmitters | string>;
 }
+
+export interface CompileOptions {
+  "entrypoint": string;
+}

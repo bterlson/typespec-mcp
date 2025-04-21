@@ -61,7 +61,17 @@ model InitOptions {
 /**
  * Init a typespec project in the given directory.
  *
- * @param outDir - The absolute path to the directory to create the typespec project in.
- * @param template - The template to use for the typespec project.
+ * @param options - Initialization options.
  */
 @tool op `init`(options: InitOptions): string;
+
+model CompileOptions {
+  /** Entrypoint to build */
+  entrypoint: string;
+}
+
+/**
+ * Compile the typespec project in the given directory.
+ * @param options -  CompileOptions
+ */
+@tool op compile(options: CompileOptions): string;
