@@ -146,43 +146,6 @@ importers:
         specifier: 'catalog:'
         version: 5.8.3
 
-  packages/tsp-mcp-agent/templates/mcp:
-    dependencies:
-      '@modelcontextprotocol/sdk':
-        specifier: ^1.9.0
-        version: 1.9.0
-      '@typespec/compiler':
-        specifier: latest
-        version: 1.0.0-rc.1(@types/node@22.14.1)
-      typespec-mcp:
-        specifier: latest
-        version: 0.0.0-73(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))
-      typespec-mcp-server-js:
-        specifier: latest
-        version: 0.0.0-73(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/emitter-framework@0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1)))))
-      zod:
-        specifier: ^3.24.2
-        version: 3.24.2
-      zod-to-json-schema:
-        specifier: ^3.24.5
-        version: 3.24.5(zod@3.24.2)
-      zod-validation-error:
-        specifier: ^3.4.0
-        version: 3.4.0(zod@3.24.2)
-    devDependencies:
-      '@types/node':
-        specifier: ^22.14.1
-        version: 22.14.1
-      '@wong2/mcp-cli':
-        specifier: ^1.6.0
-        version: 1.6.0
-      prettier:
-        specifier: ^3.5.3
-        version: 3.5.3
-      typescript:
-        specifier: ~5.8.3
-        version: 5.8.3
-
   packages/typespec-mcp:
     dependencies:
       '@typespec/compiler':
@@ -1269,14 +1232,6 @@ packages:
 
   '@types/node@22.14.0':
     resolution: {integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==}
-
-  '@types/node@22.14.1':
-    resolution: {integrity: sha512-u0HuPQwe/dHrItgHHpmw3N2fYCR6x4ivMNbPHRkBVP4CvN+kiRrKHWk3i8tXiO/joPwXLMYvF9TTF0eqgHIuOw==}
-
-  '@typespec/compiler@1.0.0-rc.1':
-    resolution: {integrity: sha512-SDCB19wCVQVGTHOwkKnOnaGH2/vpr5aHLhTOs2k36AVsFrkurpMkL0TeE2QKiJszmkQeOnGW3bgH7Hbw15kXtw==}
-    engines: {node: '>=20.0.0'}
-    hasBin: true
 
   '@typespec/compiler@1.0.0-rc.2-dev.2':
     resolution: {integrity: sha512-WWbqkKc3ymUBSkvfMgztn5mxpKXNMWxVjC9lAYHnKkqH4ovFsQzpj7jZ95dtakWy2i2cCes8bK6e9rccFabicA==}
@@ -2474,19 +2429,6 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typespec-mcp-server-js@0.0.0-73:
-    resolution: {integrity: sha512-LGgpYKFxbFdcQDVao4Rw0OihTIiKt/60aZOGTQ3FWRF5rRqLM6eaP4sUscrDS1lgXMEY+gfSlyGIfjP8iIUD4g==}
-    peerDependencies:
-      '@alloy-js/core': ^0.11.0
-      '@alloy-js/typescript': ^0.11.0
-      '@typespec/compiler': ^1.0.0-rc.2-dev.2
-      '@typespec/emitter-framework': ^0.6.0
-
-  typespec-mcp@0.0.0-73:
-    resolution: {integrity: sha512-5rRvbBAWiGjse5+/NOzxtspS5T2xxJVy3ihI6RZcPVL3RdjQDwg0GtPm1uBRcxKyfhadIE0y1cz5ls5og7XRwA==}
-    peerDependencies:
-      '@typespec/compiler': ^1.0.0-rc.2-dev.2
-
   typespec-zod@1.0.0-preview.8:
     resolution: {integrity: sha512-ze9P/VvgxfAA1UMzNK1qsJry8Ikyu9U6enlppLJHs40rZxHeGYq7pckNMV/dURPcgxkUC9mmujJ66h/3yvhtyg==}
     peerDependencies:
@@ -3090,29 +3032,12 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.14.0
 
-  '@inquirer/checkbox@4.1.5(@types/node@22.14.1)':
-    dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.1)
-      '@inquirer/figures': 1.0.11
-      '@inquirer/type': 3.0.6(@types/node@22.14.1)
-      ansi-escapes: 4.3.2
-      yoctocolors-cjs: 2.1.2
-    optionalDependencies:
-      '@types/node': 22.14.1
-
   '@inquirer/confirm@5.1.9(@types/node@22.14.0)':
     dependencies:
       '@inquirer/core': 10.1.10(@types/node@22.14.0)
       '@inquirer/type': 3.0.6(@types/node@22.14.0)
     optionalDependencies:
       '@types/node': 22.14.0
-
-  '@inquirer/confirm@5.1.9(@types/node@22.14.1)':
-    dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.1)
-      '@inquirer/type': 3.0.6(@types/node@22.14.1)
-    optionalDependencies:
-      '@types/node': 22.14.1
 
   '@inquirer/core@10.1.10(@types/node@22.14.0)':
     dependencies:
@@ -3127,19 +3052,6 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.14.0
 
-  '@inquirer/core@10.1.10(@types/node@22.14.1)':
-    dependencies:
-      '@inquirer/figures': 1.0.11
-      '@inquirer/type': 3.0.6(@types/node@22.14.1)
-      ansi-escapes: 4.3.2
-      cli-width: 4.1.0
-      mute-stream: 2.0.0
-      signal-exit: 4.1.0
-      wrap-ansi: 6.2.0
-      yoctocolors-cjs: 2.1.2
-    optionalDependencies:
-      '@types/node': 22.14.1
-
   '@inquirer/editor@4.2.10(@types/node@22.14.0)':
     dependencies:
       '@inquirer/core': 10.1.10(@types/node@22.14.0)
@@ -3148,14 +3060,6 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.14.0
 
-  '@inquirer/editor@4.2.10(@types/node@22.14.1)':
-    dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.1)
-      '@inquirer/type': 3.0.6(@types/node@22.14.1)
-      external-editor: 3.1.0
-    optionalDependencies:
-      '@types/node': 22.14.1
-
   '@inquirer/expand@4.0.12(@types/node@22.14.0)':
     dependencies:
       '@inquirer/core': 10.1.10(@types/node@22.14.0)
@@ -3163,14 +3067,6 @@ snapshots:
       yoctocolors-cjs: 2.1.2
     optionalDependencies:
       '@types/node': 22.14.0
-
-  '@inquirer/expand@4.0.12(@types/node@22.14.1)':
-    dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.1)
-      '@inquirer/type': 3.0.6(@types/node@22.14.1)
-      yoctocolors-cjs: 2.1.2
-    optionalDependencies:
-      '@types/node': 22.14.1
 
   '@inquirer/figures@1.0.11': {}
 
@@ -3181,26 +3077,12 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.14.0
 
-  '@inquirer/input@4.1.9(@types/node@22.14.1)':
-    dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.1)
-      '@inquirer/type': 3.0.6(@types/node@22.14.1)
-    optionalDependencies:
-      '@types/node': 22.14.1
-
   '@inquirer/number@3.0.12(@types/node@22.14.0)':
     dependencies:
       '@inquirer/core': 10.1.10(@types/node@22.14.0)
       '@inquirer/type': 3.0.6(@types/node@22.14.0)
     optionalDependencies:
       '@types/node': 22.14.0
-
-  '@inquirer/number@3.0.12(@types/node@22.14.1)':
-    dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.1)
-      '@inquirer/type': 3.0.6(@types/node@22.14.1)
-    optionalDependencies:
-      '@types/node': 22.14.1
 
   '@inquirer/password@4.0.12(@types/node@22.14.0)':
     dependencies:
@@ -3209,14 +3091,6 @@ snapshots:
       ansi-escapes: 4.3.2
     optionalDependencies:
       '@types/node': 22.14.0
-
-  '@inquirer/password@4.0.12(@types/node@22.14.1)':
-    dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.1)
-      '@inquirer/type': 3.0.6(@types/node@22.14.1)
-      ansi-escapes: 4.3.2
-    optionalDependencies:
-      '@types/node': 22.14.1
 
   '@inquirer/prompts@7.4.1(@types/node@22.14.0)':
     dependencies:
@@ -3233,21 +3107,6 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.14.0
 
-  '@inquirer/prompts@7.4.1(@types/node@22.14.1)':
-    dependencies:
-      '@inquirer/checkbox': 4.1.5(@types/node@22.14.1)
-      '@inquirer/confirm': 5.1.9(@types/node@22.14.1)
-      '@inquirer/editor': 4.2.10(@types/node@22.14.1)
-      '@inquirer/expand': 4.0.12(@types/node@22.14.1)
-      '@inquirer/input': 4.1.9(@types/node@22.14.1)
-      '@inquirer/number': 3.0.12(@types/node@22.14.1)
-      '@inquirer/password': 4.0.12(@types/node@22.14.1)
-      '@inquirer/rawlist': 4.0.12(@types/node@22.14.1)
-      '@inquirer/search': 3.0.12(@types/node@22.14.1)
-      '@inquirer/select': 4.1.1(@types/node@22.14.1)
-    optionalDependencies:
-      '@types/node': 22.14.1
-
   '@inquirer/rawlist@4.0.12(@types/node@22.14.0)':
     dependencies:
       '@inquirer/core': 10.1.10(@types/node@22.14.0)
@@ -3255,14 +3114,6 @@ snapshots:
       yoctocolors-cjs: 2.1.2
     optionalDependencies:
       '@types/node': 22.14.0
-
-  '@inquirer/rawlist@4.0.12(@types/node@22.14.1)':
-    dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.1)
-      '@inquirer/type': 3.0.6(@types/node@22.14.1)
-      yoctocolors-cjs: 2.1.2
-    optionalDependencies:
-      '@types/node': 22.14.1
 
   '@inquirer/search@3.0.12(@types/node@22.14.0)':
     dependencies:
@@ -3272,15 +3123,6 @@ snapshots:
       yoctocolors-cjs: 2.1.2
     optionalDependencies:
       '@types/node': 22.14.0
-
-  '@inquirer/search@3.0.12(@types/node@22.14.1)':
-    dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.1)
-      '@inquirer/figures': 1.0.11
-      '@inquirer/type': 3.0.6(@types/node@22.14.1)
-      yoctocolors-cjs: 2.1.2
-    optionalDependencies:
-      '@types/node': 22.14.1
 
   '@inquirer/select@4.1.1(@types/node@22.14.0)':
     dependencies:
@@ -3292,23 +3134,9 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.14.0
 
-  '@inquirer/select@4.1.1(@types/node@22.14.1)':
-    dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.1)
-      '@inquirer/figures': 1.0.11
-      '@inquirer/type': 3.0.6(@types/node@22.14.1)
-      ansi-escapes: 4.3.2
-      yoctocolors-cjs: 2.1.2
-    optionalDependencies:
-      '@types/node': 22.14.1
-
   '@inquirer/type@3.0.6(@types/node@22.14.0)':
     optionalDependencies:
       '@types/node': 22.14.0
-
-  '@inquirer/type@3.0.6(@types/node@22.14.1)':
-    optionalDependencies:
-      '@types/node': 22.14.1
 
   '@isaacs/fs-minipass@4.0.1':
     dependencies:
@@ -3817,32 +3645,6 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
-  '@types/node@22.14.1':
-    dependencies:
-      undici-types: 6.21.0
-
-  '@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1)':
-    dependencies:
-      '@babel/code-frame': 7.26.2
-      '@inquirer/prompts': 7.4.1(@types/node@22.14.1)
-      ajv: 8.17.1
-      change-case: 5.4.4
-      env-paths: 3.0.0
-      globby: 14.1.0
-      is-unicode-supported: 2.1.0
-      mustache: 4.2.0
-      picocolors: 1.1.1
-      prettier: 3.5.3
-      semver: 7.7.1
-      tar: 7.4.3
-      temporal-polyfill: 0.3.0
-      vscode-languageserver: 9.0.1
-      vscode-languageserver-textdocument: 1.0.12
-      yaml: 2.7.1
-      yargs: 17.7.2
-    transitivePeerDependencies:
-      - '@types/node'
-
   '@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)':
     dependencies:
       '@babel/code-frame': 7.26.2
@@ -3865,14 +3667,6 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@typespec/emitter-framework@0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))))':
-    dependencies:
-      '@alloy-js/core': 0.11.0
-      '@alloy-js/typescript': 0.11.0
-      '@typespec/compiler': 1.0.0-rc.1(@types/node@22.14.1)
-      '@typespec/http': 1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))
-      '@typespec/rest': 0.68.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1)))
-
   '@typespec/emitter-framework@0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))))':
     dependencies:
       '@alloy-js/core': 0.11.0
@@ -3881,18 +3675,9 @@ snapshots:
       '@typespec/http': 1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))
       '@typespec/rest': 0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))
 
-  '@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))':
-    dependencies:
-      '@typespec/compiler': 1.0.0-rc.1(@types/node@22.14.1)
-
   '@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))':
     dependencies:
       '@typespec/compiler': 1.0.0-rc.2-dev.2(@types/node@22.14.0)
-
-  '@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1)))':
-    dependencies:
-      '@typespec/compiler': 1.0.0-rc.1(@types/node@22.14.1)
-      '@typespec/http': 1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))
 
   '@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))':
     dependencies:
@@ -5109,26 +4894,6 @@ snapshots:
       mime-types: 3.0.1
 
   typescript@5.8.3: {}
-
-  typespec-mcp-server-js@0.0.0-73(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/emitter-framework@0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))))):
-    dependencies:
-      '@alloy-js/core': 0.11.0
-      '@alloy-js/typescript': 0.11.0
-      '@typespec/compiler': 1.0.0-rc.1(@types/node@22.14.1)
-      '@typespec/emitter-framework': 0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))))
-      typespec-mcp: 0.0.0-73(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))
-      typespec-zod: 1.0.0-preview.8(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/emitter-framework@0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1)))))
-
-  typespec-mcp@0.0.0-73(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1)):
-    dependencies:
-      '@typespec/compiler': 1.0.0-rc.1(@types/node@22.14.1)
-
-  typespec-zod@1.0.0-preview.8(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/emitter-framework@0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))))):
-    dependencies:
-      '@alloy-js/core': 0.11.0
-      '@alloy-js/typescript': 0.11.0
-      '@typespec/compiler': 1.0.0-rc.1(@types/node@22.14.1)
-      '@typespec/emitter-framework': 0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.1(@types/node@22.14.1))))
 
   typespec-zod@1.0.0-preview.8(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/emitter-framework@0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))))):
     dependencies:

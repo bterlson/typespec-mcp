@@ -1,6 +1,5 @@
 packages:
-  - "packages/**"
-  - "demos/**"
+  - "packages/*"
 
 catalog:
   "@alloy-js/core": ^0.11.0
