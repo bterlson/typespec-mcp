@@ -7,7 +7,7 @@ import { Client } from "pg";
 const client = new Client();
 await client.connect();
 await client.query(
-  "CREATE TABLE IF NOT EXISTS todos (id SERIAL PRIMARY KEY, data JSONB NOT NULL);"
+  "CREATE TABLE IF NOT EXISTS todos (id SERIAL PRIMARY KEY, data JSONB NOT NULL);",
 );
 console.log("Todos", await client.query("SELECT * FROM todos;"));
 
