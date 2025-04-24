@@ -5,12 +5,15 @@
   "description": "",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.9.0",
-    "@typespec/compiler": "latest",
+    "@typespec/compiler": "^1.0.0-rc.2-dev.2",
     "typespec-mcp": "latest",
     "typespec-mcp-server-js": "latest",
     "zod": "^3.24.2",
     "zod-to-json-schema": "^3.24.5",
     "zod-validation-error": "^3.4.0"
+  },
+  "overrides": {
+    "@typespec/compiler": "^1.0.0-rc.2-dev.2"
   },
   "devDependencies": {
     "@types/node": "^22.14.1",
