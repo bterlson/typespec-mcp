@@ -1,5 +1,5 @@
 {
-  "name": "typespec-mcp-for-mcp",
+  "name": "mcp-server-typespec",
   "version": "0.0.0-0",
   "description": "MCP server to help writing MCP servers with TypeSpec",
   "bin": "./cmd/cli.js",
