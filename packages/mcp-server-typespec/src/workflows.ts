@@ -18,7 +18,7 @@ function useTemplate(
     readonly baseUri: string;
     readonly templates: Record<string, any>;
   },
-  name: string
+  name: string,
 ) {
   if (name in config.templates) {
     return {
@@ -28,8 +28,8 @@ function useTemplate(
   } else {
     throw new Error(
       `Template ${name} not found. Available templates: ${Object.keys(
-        config.templates
-      ).join(", ")}`
+        config.templates,
+      ).join(", ")}`,
     );
   }
 }
@@ -54,7 +54,7 @@ async function getTypeSpecCoreTemplates(): Promise<{
   readonly templates: Record<string, any>;
 }> {
   const compilerIndex = fileURLToPath(
-    import.meta.resolve("@typespec/compiler")
+    import.meta.resolve("@typespec/compiler"),
   ); // <compiler-pkg>/dist/src/index.js
   return loadTemplates(resolve(compilerIndex, "../../..", "templates"));
 }
