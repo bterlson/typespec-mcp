@@ -117,3 +117,4 @@ function resolveEmitters(
 }
 const transport = new StdioServerTransport();
 await server.connect(transport);
+console.error("MCP Server running on stdio");
