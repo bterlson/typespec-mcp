@@ -23,7 +23,7 @@
     "typescript": "catalog:"
   },
   "scripts": {
-    "build-tsp": "tsp compile . --emit typespec-mcp-http-server-js",
+    "build-tsp": "tsp compile .",
     "build-ts": "tsc -p .",
     "build": "pnpm build-tsp && pnpm build-ts",
     "mcp": "mcp-cli node dist/src/mcp-server.js",
