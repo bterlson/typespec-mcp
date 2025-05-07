@@ -33,6 +33,9 @@ catalogs:
     '@typespec/emitter-framework':
       specifier: ^0.6.0
       version: 0.6.0
+    '@typespec/http':
+      specifier: ^1.0.0-rc.1
+      version: 1.0.1
     concurrently:
       specifier: ^9.1.2
       version: 9.1.2
@@ -77,6 +80,9 @@ importers:
       '@typespec/compiler':
         specifier: 'catalog:'
         version: 1.0.0-rc.2-dev.2(@types/node@22.14.0)
+      '@typespec/http':
+        specifier: 'catalog:'
+        version: 1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))
       typespec-mcp:
         specifier: workspace:*
         version: link:../typespec-mcp
@@ -175,13 +181,13 @@ importers:
         version: 1.0.0-rc.2-dev.2(@types/node@22.14.0)
       '@typespec/emitter-framework':
         specifier: 'catalog:'
-        version: 0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))))
+        version: 0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))))
       typespec-mcp:
         specifier: workspace:*
         version: link:../typespec-mcp
       typespec-zod:
         specifier: 'catalog:'
-        version: 1.0.0-preview.8(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/emitter-framework@0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))))
+        version: 1.0.0-preview.8(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/emitter-framework@0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))))
     devDependencies:
       '@alloy-js/babel-preset':
         specifier: 'catalog:'
@@ -1250,12 +1256,12 @@ packages:
       '@typespec/http': ^1.0.0-rc.1
       '@typespec/rest': ^0.69.0
 
-  '@typespec/http@1.0.0-rc.0':
-    resolution: {integrity: sha512-Or2hhDXy8DZZoy3B/HudSrRHTFomiv6DI3vRpPKYT9ocIAxMGo1hQvqKye8uVk/QIMn/ouv6JUlP+pqjpfnPyw==}
+  '@typespec/http@1.0.1':
+    resolution: {integrity: sha512-J5tqBWlmkvI/W+kJn4EFuN0laGxbY8qT68jzEQEiYeAXSfNyFGRSoCwn8Ex6dJphq4IozOMdVTNtOZWIJlwmfw==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
-      '@typespec/compiler': ^1.0.0-rc.0
-      '@typespec/streams': ^0.68.0
+      '@typespec/compiler': ^1.0.0
+      '@typespec/streams': ^0.70.0
     peerDependenciesMeta:
       '@typespec/streams':
         optional: true
@@ -3673,15 +3679,15 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@typespec/emitter-framework@0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))))':
+  '@typespec/emitter-framework@0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))))':
     dependencies:
       '@alloy-js/core': 0.11.0
       '@alloy-js/typescript': 0.11.0
       '@typespec/compiler': 1.0.0-rc.2-dev.2(@types/node@22.14.0)
-      '@typespec/http': 1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))
-      '@typespec/rest': 0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))
+      '@typespec/http': 1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))
+      '@typespec/rest': 0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))
 
-  '@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))':
+  '@typespec/http@1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))':
     dependencies:
       '@typespec/compiler': 1.0.0-rc.2-dev.2(@types/node@22.14.0)
 
@@ -3689,10 +3695,10 @@ snapshots:
     dependencies:
       prettier: 3.5.3
 
-  '@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))':
+  '@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))':
     dependencies:
       '@typespec/compiler': 1.0.0-rc.2-dev.2(@types/node@22.14.0)
-      '@typespec/http': 1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))
+      '@typespec/http': 1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))
 
   '@vitest/expect@3.1.1':
     dependencies:
@@ -4905,12 +4911,12 @@ snapshots:
 
   typescript@5.8.3: {}
 
-  typespec-zod@1.0.0-preview.8(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/emitter-framework@0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))))):
+  typespec-zod@1.0.0-preview.8(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/emitter-framework@0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))))):
     dependencies:
       '@alloy-js/core': 0.11.0
       '@alloy-js/typescript': 0.11.0
       '@typespec/compiler': 1.0.0-rc.2-dev.2(@types/node@22.14.0)
-      '@typespec/emitter-framework': 0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.0-rc.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))))
+      '@typespec/emitter-framework': 0.6.0(@alloy-js/core@0.11.0)(@alloy-js/typescript@0.11.0)(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0)))(@typespec/rest@0.68.0(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))(@typespec/http@1.0.1(@typespec/compiler@1.0.0-rc.2-dev.2(@types/node@22.14.0))))
 
   undici-types@6.21.0: {}
 

@@ -6,6 +6,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.9.0",
     "@typespec/compiler": "catalog:",
+    "@typespec/http": "catalog:",
     "typespec-mcp": "workspace:*",
     "typespec-mcp-server-js": "workspace:*",
     "zod": "^3.24.2",
