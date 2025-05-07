@@ -35,8 +35,6 @@
   "type": "module",
   "devDependencies": {
     "@alloy-js/cli": "catalog:",
-    "@babel/cli": "catalog:",
-    "@babel/preset-typescript": "catalog:",
     "@types/node": "catalog:",
     "concurrently": "catalog:"
   }

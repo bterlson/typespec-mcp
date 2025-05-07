@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    '@alloy-js/cli':
+      specifier: ^0.15.0
+      version: 0.15.0
     '@alloy-js/core':
       specifier: ^0.15.0
       version: 0.15.0
@@ -198,18 +201,9 @@ importers:
         specifier: 'catalog:'
         version: 1.0.0-preview.10(@alloy-js/core@0.15.0)(@alloy-js/typescript@0.15.0)(@typespec/compiler@1.0.0(@types/node@22.15.15))(@typespec/emitter-framework@0.7.0(@alloy-js/core@0.15.0)(@alloy-js/typescript@0.15.0)(@typespec/compiler@1.0.0(@types/node@22.15.15))(@typespec/http@1.0.1(@typespec/compiler@1.0.0(@types/node@22.15.15)))(@typespec/rest@0.70.0(@typespec/compiler@1.0.0(@types/node@22.15.15))(@typespec/http@1.0.1(@typespec/compiler@1.0.0(@types/node@22.15.15)))))
     devDependencies:
-      '@alloy-js/babel-preset':
+      '@alloy-js/cli':
         specifier: 'catalog:'
-        version: 0.2.1(@babel/core@7.27.1)
-      '@alloy-js/rollup-plugin':
-        specifier: 'catalog:'
-        version: 0.1.0(@babel/core@7.27.1)(rollup@4.40.2)
-      '@babel/cli':
-        specifier: 'catalog:'
-        version: 7.27.2(@babel/core@7.27.1)
-      '@babel/preset-typescript':
-        specifier: 'catalog:'
-        version: 7.27.1(@babel/core@7.27.1)
+        version: 0.15.0
       '@types/node':
         specifier: 'catalog:'
         version: 22.15.15
@@ -239,8 +233,8 @@ importers:
         version: 1.0.0-preview.10(@alloy-js/core@0.15.0)(@alloy-js/typescript@0.15.0)(@typespec/compiler@1.0.0(@types/node@22.15.15))(@typespec/emitter-framework@0.7.0(@alloy-js/core@0.15.0)(@alloy-js/typescript@0.15.0)(@typespec/compiler@1.0.0(@types/node@22.15.15))(@typespec/http@1.0.1(@typespec/compiler@1.0.0(@types/node@22.15.15)))(@typespec/rest@0.70.0(@typespec/compiler@1.0.0(@types/node@22.15.15))(@typespec/http@1.0.1(@typespec/compiler@1.0.0(@types/node@22.15.15)))))
     devDependencies:
       '@alloy-js/cli':
-        specifier: ^0.11.0
-        version: 0.11.0
+        specifier: 'catalog:'
+        version: 0.15.0
       '@alloy-js/rollup-plugin':
         specifier: 'catalog:'
         version: 0.1.0(@babel/core@7.27.1)(rollup@4.40.2)
@@ -266,8 +260,8 @@ packages:
   '@alloy-js/babel-preset@0.2.1':
     resolution: {integrity: sha512-vz9kvQwx5qBzHIw4ryqUaQqpgNOMBmkdDcV3e2zZfMq8Pp16ePFtvviHh6RwyLcvXQQClex3ZZy8ON9TifMnxw==}
 
-  '@alloy-js/cli@0.11.0':
-    resolution: {integrity: sha512-8v6o23auuiGYGjLXO747XkgxS3A33zlc/XNToPtAyubvrrLg0/1FrT1iRwfMQsJddXlr8B0+MHaRwam/hmBosw==}
+  '@alloy-js/cli@0.15.0':
+    resolution: {integrity: sha512-VI113tvoXL8ceSWloOr7ZbvMtQrGFLYe6bRUWsFkwpXuzRIK+JvyQJ5gspHKpuUBl0FDMTcYljvLEDKba9ueQA==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -2811,7 +2805,7 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  '@alloy-js/cli@0.11.0':
+  '@alloy-js/cli@0.15.0':
     dependencies:
       '@alloy-js/babel-preset': 0.2.1(@babel/core@7.27.1)
       '@babel/core': 7.27.1
