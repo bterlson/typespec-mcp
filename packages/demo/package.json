@@ -10,6 +10,7 @@
     "@typespec/http": "catalog:",
     "typespec-mcp": "workspace:*",
     "typespec-mcp-server-js": "workspace:*",
+    "typespec-mcp-http-server-js": "workspace:*",
     "url-template": "^3.1.1",
     "zod": "^3.24.2",
     "zod-to-json-schema": "^3.24.5",
@@ -22,7 +23,7 @@
     "typescript": "catalog:"
   },
   "scripts": {
-    "build-tsp": "tsp compile . --emit typespec-mcp-server-js",
+    "build-tsp": "tsp compile . --emit typespec-mcp-http-server-js",
     "build-ts": "tsc -p .",
     "build": "pnpm build-tsp && pnpm build-ts",
     "mcp": "mcp-cli node dist/src/mcp-server.js",
