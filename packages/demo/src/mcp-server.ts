@@ -1,7 +1,7 @@
-import { setToolHandler } from "../tsp-output/typespec-mcp-server-js/tools.js";
-import { server } from "../tsp-output/typespec-mcp-server-js/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { parseTemplate } from "url-template";
+import { server } from "../tsp-output/typespec-mcp-server-js/index.js";
+import { setToolHandler } from "../tsp-output/typespec-mcp-server-js/tools.js";
 
 setToolHandler({
   async getRepository(owner, repo) {
