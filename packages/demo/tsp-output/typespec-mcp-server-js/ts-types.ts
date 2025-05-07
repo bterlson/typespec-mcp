@@ -14,7 +14,7 @@ export interface FullRepository {
   owner: Owner
   private: boolean
   html_url: string
-  description?: string
+  description?: string | null
   fork: boolean
   url: string
   archive_url: string
@@ -55,11 +55,11 @@ export interface FullRepository {
   teams_url: string
   trees_url: string
   clone_url: string
-  mirror_url?: string
+  mirror_url?: string | null
   hooks_url: string
   svn_url: string
-  homepage?: string
-  language?: string
+  homepage?: string | null
+  language?: string | null
   forks_count: number
   stargazers_count: number
   watchers_count: number
@@ -83,6 +83,6 @@ export interface FullRepository {
     key: string
     name_2: string
     spdx_id: string
-    url_2?: string;
+    url_2?: string | null;
   };
 }

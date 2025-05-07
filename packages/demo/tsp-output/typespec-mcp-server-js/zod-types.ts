@@ -27,7 +27,7 @@ export const FullRepository = z.object({
     private: z.boolean()
       .describe("Whether the repository is private or public"),
     html_url: z.string().describe("HTML URL of the repository"),
-    description: z.string()
+    description: z.union([z.string(), z.null()])
       .optional()
       .describe("Description of the repository"),
     fork: z.boolean().describe("Whether the repository is a fork"),
@@ -99,11 +99,15 @@ export const FullRepository = z.object({
     teams_url: z.string().describe("URL for accessing the repository's teams"),
     trees_url: z.string().describe("URL for accessing the repository's trees"),
     clone_url: z.string().describe("Clone URL of the repository"),
-    mirror_url: z.string().optional().describe("Mirror URL of the repository"),
+    mirror_url: z.union([z.string(), z.null()])
+      .optional()
+      .describe("Mirror URL of the repository"),
     hooks_url: z.string().describe("URL for accessing the repository's hooks"),
     svn_url: z.string().describe("SVN URL of the repository"),
-    homepage: z.string().optional().describe("Homepage URL of the repository"),
-    language: z.string()
+    homepage: z.union([z.string(), z.null()])
+      .optional()
+      .describe("Homepage URL of the repository"),
+    language: z.union([z.string(), z.null()])
       .optional()
       .describe("Primary language of the repository"),
     forks_count: z.number()
@@ -155,7 +159,9 @@ export const FullRepository = z.object({
         key: z.string().describe("Key of the license"),
         name: z.string().describe("Name of the license"),
         spdx_id: z.string().describe("SPDX ID of the license"),
-        url: z.string().optional().describe("URL of the license"),
+        url: z.union([z.string(), z.null()])
+          .optional()
+          .describe("URL of the license"),
       })
       .optional()
       .describe("License information of the repository"),

@@ -58,7 +58,7 @@ model FullRepository {
   html_url: string;
 
   /** Description of the repository */
-  description?: string;
+  description?: string | null;
 
   /** Whether the repository is a fork */
   fork: boolean;
@@ -181,7 +181,7 @@ model FullRepository {
   clone_url: string;
 
   /** Mirror URL of the repository */
-  mirror_url?: string;
+  mirror_url?: string | null;
 
   /** URL for accessing the repository's hooks */
   hooks_url: string;
@@ -190,10 +190,10 @@ model FullRepository {
   svn_url: string;
 
   /** Homepage URL of the repository */
-  homepage?: string;
+  homepage?: string | null;
 
   /** Primary language of the repository */
-  language?: string;
+  language?: string | null;
 
   /** Number of forks of the repository */
   forks_count: int32;
@@ -264,7 +264,7 @@ model FullRepository {
     spdx_id: string;
 
     /** URL of the license */
-    url?: string;
+    url?: string | null;
   };
 }
 
