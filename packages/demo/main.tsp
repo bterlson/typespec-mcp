@@ -13,6 +13,24 @@ using Http;
 @server("https://api.github.com")
 namespace VectorMCP;
 
+/** Github user */
+model Owner {
+  /** The username of the owner */
+  login: string;
+
+  /** Unique identifier of the owner */
+  id: int32;
+
+  /** Node ID of the owner */
+  node_id: string;
+
+  /** Avatar URL of the owner */
+  avatar_url: string;
+
+  /** HTML URL of the owner's profile */
+  html_url: string;
+}
+
 /**
  * Full representation of a GitHub repository.
  * This model includes all the details of a repository, such as its owner, visibility, license, and various URLs for accessing its resources.
@@ -31,22 +49,7 @@ model FullRepository {
   full_name: string;
 
   /** The owner of the repository */
-  owner: {
-    /** The username of the owner */
-    login: string;
-
-    /** Unique identifier of the owner */
-    id: int32;
-
-    /** Node ID of the owner */
-    node_id: string;
-
-    /** Avatar URL of the owner */
-    avatar_url: string;
-
-    /** HTML URL of the owner's profile */
-    html_url: string;
-  };
+  owner: Owner;
 
   /** Whether the repository is private or public */
   private: boolean;
