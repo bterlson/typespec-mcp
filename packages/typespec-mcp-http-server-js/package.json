@@ -21,6 +21,7 @@
     "@alloy-js/core": "catalog:",
     "@alloy-js/typescript": "catalog:",
     "@typespec/compiler": "catalog:",
+    "@typespec/http": "catalog:",
     "@typespec/emitter-framework": "catalog:"
   },
   "scripts": {

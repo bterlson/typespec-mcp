@@ -1,8 +1,8 @@
 import { zodToJsonSchema } from "zod-to-json-schema";
 import { fromZodError } from "zod-validation-error";
+import { parseTemplate } from "url-template";
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
-import { toolHandler } from "./tools.js";
 import { getRepositoryParameters, getRepositoryReturnType } from "./zod-types.js";
 
 export const server = new Server(
@@ -49,10 +49,7 @@ server.setRequestHandler(
         if (!parsed.success) {
           throw fromZodError(parsed.error, { prefix: "Request validation error" });
         }
-        const rawResult = await toolHandler.getRepository(
-          parsed.data.owner,
-          parsed.data.repo
-        );
+        const rawResult = await httpToolHandler("getRepository", parsed.data);
         const maybeResult = getRepositoryReturnType.safeParse(rawResult);
         if (!maybeResult.success) {
           throw fromZodError(maybeResult.error, { prefix: "Response validation error"});
@@ -71,3 +68,15 @@ server.setRequestHandler(
     return { content: [{ type: "text", text: "Unknown tool" }] };
   }
 )
+
+const tools = {
+  getRepository: "/repos/{owner}/{repo}",
+} as const;
+
+async function httpToolHandler(tool: keyof typeof tools, data: any) {
+  const templateStr = tools[tool];
+  const template = parseTemplate("https://api.github.com" + templateStr);
+  const url = template.expand(data);
+  const res = await fetch(url);
+  return res.json();
+}

@@ -1,4 +1,4 @@
-import { List } from "@alloy-js/core";
+import { Children, List, Refkey, SymbolCreator } from "@alloy-js/core";
 import { SourceFile } from "@alloy-js/typescript";
 import { Program } from "@typespec/compiler";
 import { Output } from "@typespec/emitter-framework";
@@ -17,11 +17,18 @@ import { ZodTypes } from "./ZodTypes.jsx";
 
 export interface McpServerProps {
   program: Program;
+  externals?: SymbolCreator[];
+  toolImplementation?: {
+    dispatcher: Refkey;
+    implementation: Children;
+  };
 }
 export function McpServer(props: McpServerProps) {
-  const mcpServerContext: MCPServerContext = createMCPServerContext(props.program);
+  const mcpServerContext: MCPServerContext = createMCPServerContext(props.program, {
+    toolDispatcher: props.toolImplementation?.dispatcher,
+  });
 
-  const libs = [mcpSdk, zod, zodToJsonSchema, zodValidationError];
+  const libs = [mcpSdk, zod, zodToJsonSchema, zodValidationError, ...(props.externals ?? [])];
 
   return (
     <Output program={props.program} externals={libs}>
@@ -37,6 +44,7 @@ export function McpServer(props: McpServerProps) {
             <ServerDeclaration />
             <ListToolsHandler />
             <CallToolHandlers />
+            {props.toolImplementation?.implementation}
           </List>
         </SourceFile>
         <SourceFile path="tools.ts">
