@@ -85,6 +85,7 @@ export interface TupleResultDescriptor {
 export type ResultDescriptor = SingleResultDescriptor | ArrayResultDescriptor | TupleResultDescriptor;
 
 export interface ToolDescriptor {
+  rawOp: Operation;
   op: Operation;
   implementationOp: Operation;
   parameters: Model;
@@ -99,6 +100,7 @@ export interface ToolDescriptor {
 }
 
 export interface MCPServerContext {
+  server?: McpServer;
   name: string;
   version: string;
   capabilities: string[];
@@ -106,6 +108,7 @@ export interface MCPServerContext {
   keys: MCPServerKeys;
   allTypes: Type[];
   instructions?: string;
+  validateResult: boolean;
 }
 
 export const MCPServerContext: ComponentContext<MCPServerContext> = createContext();
@@ -118,7 +121,7 @@ export function useMCPServerContext(): MCPServerContext {
   return context;
 }
 
-export function createMCPServerContext(program: Program): MCPServerContext {
+export function createMCPServerContext(program: Program, validateResult: boolean = true): MCPServerContext {
   const tk = $(program);
   const server = tk.mcp.servers.list()[0] as McpServer | undefined;
   const toolOps = tk.mcp.tools.list(server);
@@ -158,6 +161,7 @@ export function createMCPServerContext(program: Program): MCPServerContext {
     });
 
     toolDescriptors.push({
+      rawOp: rawToolOp,
       op: toolOp,
       implementationOp,
       errors,
@@ -174,10 +178,13 @@ export function createMCPServerContext(program: Program): MCPServerContext {
 
   const allTypes = discoverTypesFrom(
     program,
-    toolDescriptors.flatMap((tool) => [tool.op.parameters, tool.implementationOp.returnType]),
+    toolDescriptors.flatMap((tool) =>
+      validateResult ? [tool.op.parameters, tool.implementationOp.returnType] : [tool.op.parameters],
+    ),
   );
 
   return {
+    server,
     name: server?.name ?? "MCP Server",
     version: server?.version ?? "1.0.0",
     instructions: server?.instructions,
@@ -191,6 +198,7 @@ export function createMCPServerContext(program: Program): MCPServerContext {
       getToolHandler: refkey(),
       setToolHandler: refkey(),
     },
+    validateResult,
   };
 }
 

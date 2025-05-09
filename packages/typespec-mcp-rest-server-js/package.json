@@ -1,14 +1,11 @@
 {
-  "name": "typespec-mcp-server-js",
-  "version": "0.0.0-0",
+  "name": "typespec-mcp-rest-server-js",
+  "version": "0.1.0",
   "description": "",
   "exports": {
     ".": {
       "import": "./dist/src/index.js",
       "types": "./dist/src/index.d.ts"
-    },
-    "./components": {
-      "import": "./dist/src/components/index.js"
     },
     "./testing": {
       "import": "./dist/testing/index.js",
@@ -16,14 +13,19 @@
     }
   },
   "dependencies": {
+    "@typespec/http-client": "catalog:",
+    "@typespec/http-client-js": "catalog:",
     "typespec-mcp": "workspace:*",
+    "typespec-mcp-server-js": "workspace:*",
     "typespec-zod": "catalog:"
   },
   "peerDependencies": {
     "@alloy-js/core": "catalog:",
     "@alloy-js/typescript": "catalog:",
     "@typespec/compiler": "catalog:",
-    "@typespec/emitter-framework": "catalog:"
+    "@typespec/http": "catalog:",
+    "@typespec/emitter-framework": "catalog:",
+    "@typespec/rest": "catalog:"
   },
   "scripts": {
     "build": "alloy build",
@@ -39,6 +41,7 @@
     "@alloy-js/cli": "catalog:",
     "@alloy-js/rollup-plugin": "catalog:",
     "@types/node": "catalog:",
+    "@typespec/http": "catalog:",
     "concurrently": "catalog:"
   }
 }
